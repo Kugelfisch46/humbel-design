@@ -14,8 +14,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     alt="Background"
                     className="w-full h-full object-cover"
                 />
-                {/* Overlay for readability - Gradient from top (clearer) to bottom (more opaque) */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-white/20 to-white/60 backdrop-blur-[2px]"></div>
+                {/* Overlay for readability - Lighter gradient, no blur for sharpness */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-white/10 to-white/40"></div>
             </div>
 
             <main className="relative z-10 container mx-auto px-4 py-8 md:py-12 flex flex-col min-h-screen">

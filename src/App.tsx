@@ -13,10 +13,10 @@ function App() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="w-full max-w-5xl glass-panel rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl"
+          className="w-full max-w-3xl glass-panel rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl"
         >
           {/* Left Content Section */}
-          <div className="p-8 md:p-12 lg:p-16 flex-1 flex flex-col justify-center relative overflow-hidden">
+          <div className="p-8 md:p-10 flex-1 flex flex-col justify-center relative overflow-hidden">
             <div className="relative z-10">
               <Hero />
               <div className="mt-12 hidden md:block">
@@ -28,7 +28,7 @@ function App() {
           </div>
 
           {/* Right/Bottom Action Section */}
-          <div className="bg-white/50 backdrop-blur-xl border-t md:border-t-0 md:border-l border-white/50 p-8 md:p-12 flex flex-col justify-center items-center md:items-stretch">
+          <div className="bg-white/50 backdrop-blur-xl border-t md:border-t-0 md:border-l border-white/50 p-8 md:p-10 flex flex-col justify-center items-center md:items-stretch">
             <div className="md:hidden mb-8 w-full">
               <ContactInfo />
             </div>
