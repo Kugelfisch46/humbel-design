@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, CheckCircle, XCircle } from 'lucide-react';
+import { Send, CheckCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const ContactForm: React.FC = () => {
