@@ -27,14 +27,14 @@ const ContactForm: React.FC = () => {
     };
 
     return (
-        <div className="glass-card p-6 rounded-2xl w-full max-w-sm mt-8 relative overflow-hidden">
-            <h3 className="text-xl font-bold mb-4 text-dark">Kontaktformular</h3>
+        <div className="w-full max-w-sm relative">
+            <h3 className="text-xl font-bold mb-6 text-dark uppercase tracking-widest text-sm">Kontaktformular</h3>
 
             <AnimatePresence mode='wait'>
                 {status === 'success' ? (
                     <motion.div
                         initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                        className="flex flex-col items-center justify-center p-8 text-center text-green-600"
+                        className="flex flex-col items-center justify-center p-8 text-center text-green-600 bg-white/30 rounded-xl"
                     >
                         <CheckCircle size={48} className="mb-2" />
                         <p className="font-medium">Nachricht gesendet!</p>
@@ -52,37 +52,34 @@ const ContactForm: React.FC = () => {
                         <input type="hidden" name="form-name" value="contact" />
 
                         <div>
-                            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
                             <input type="text" id="name" name="name" required
-                                className="w-full px-4 py-2 rounded-lg bg-white/50 border border-t-white/60 border-l-white/60 border-r-gray-200 border-b-gray-200 focus:ring-2 focus:ring-primary/50 focus:outline-none transition-all"
-                                placeholder="Ihr Name"
+                                className="w-full px-4 py-3 rounded-lg bg-white/40 border border-white/40 focus:bg-white/60 focus:ring-2 focus:ring-primary/50 focus:outline-none transition-all placeholder:text-gray-500"
+                                placeholder="Name"
                             />
                         </div>
 
                         <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
                             <input type="email" id="email" name="email" required
-                                className="w-full px-4 py-2 rounded-lg bg-white/50 border border-t-white/60 border-l-white/60 border-r-gray-200 border-b-gray-200 focus:ring-2 focus:ring-primary/50 focus:outline-none transition-all"
-                                placeholder="ihre@email.com"
+                                className="w-full px-4 py-3 rounded-lg bg-white/40 border border-white/40 focus:bg-white/60 focus:ring-2 focus:ring-primary/50 focus:outline-none transition-all placeholder:text-gray-500"
+                                placeholder="Email"
                             />
                         </div>
 
                         <div>
-                            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Nachricht</label>
                             <textarea id="message" name="message" required rows={4}
-                                className="w-full px-4 py-2 rounded-lg bg-white/50 border border-t-white/60 border-l-white/60 border-r-gray-200 border-b-gray-200 focus:ring-2 focus:ring-primary/50 focus:outline-none transition-all resize-none"
-                                placeholder="Ihre Nachricht..."
+                                className="w-full px-4 py-3 rounded-lg bg-white/40 border border-white/40 focus:bg-white/60 focus:ring-2 focus:ring-primary/50 focus:outline-none transition-all resize-none placeholder:text-gray-500"
+                                placeholder="Nachricht..."
                             ></textarea>
                         </div>
 
                         <button
                             type="submit"
                             disabled={status === 'submitting'}
-                            className="w-full py-3 bg-primary text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:bg-primary/90 transition-all flex items-center justify-center gap-2 group disabled:opacity-70"
+                            className="w-full py-3 bg-dark text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:bg-black transition-all flex items-center justify-center gap-2 group disabled:opacity-70 uppercase tracking-widest text-xs"
                         >
                             {status === 'submitting' ? 'Senden...' : (
                                 <>
-                                    Senden <Send size={18} className="group-hover:translate-x-1 transition-transform" />
+                                    Senden <Send size={16} className="group-hover:translate-x-1 transition-transform" />
                                 </>
                             )}
                         </button>

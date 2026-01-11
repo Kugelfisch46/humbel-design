@@ -4,13 +4,8 @@ import { motion } from 'framer-motion';
 
 const ContactInfo: React.FC = () => {
     return (
-        <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="glass-card p-6 rounded-2xl max-w-sm backdrop-blur-xl bg-white/60 border-white/40"
-        >
-            <h2 className="text-2xl font-bold mb-6 text-dark">Kontakt</h2>
+        <div className="max-w-sm">
+            <h2 className="text-xl font-bold mb-6 text-dark uppercase tracking-widest text-sm">Kontakt</h2>
             <div className="space-y-4">
                 <a href="tel:+41562494465" className="flex items-center gap-3 text-gray-700 hover:text-primary transition-colors group">
                     <div className="p-2 bg-white/50 rounded-full group-hover:bg-primary/10 transition-colors">
@@ -38,7 +33,7 @@ const ContactInfo: React.FC = () => {
                     </address>
                 </div>
             </div>
-        </motion.div>
+        </div>
     );
 };
 
