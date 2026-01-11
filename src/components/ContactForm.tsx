@@ -27,18 +27,17 @@ const ContactForm: React.FC = () => {
     };
 
     return (
-        <div className="w-full max-w-sm relative mt-4 md:mt-0">
-            <h3 className="text-lg font-bold mb-4 text-dark uppercase tracking-widest text-xs">Kontaktformular</h3>
+        <div className="w-full relative mt-8 md:mt-0">
 
             <AnimatePresence mode='wait'>
                 {status === 'success' ? (
                     <motion.div
                         initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                        className="flex flex-col items-center justify-center p-8 text-center text-green-600 bg-white/30 rounded-xl"
+                        className="flex flex-col items-center justify-center p-8 text-center text-green-700 bg-white/40 rounded-xl"
                     >
-                        <CheckCircle size={48} className="mb-2" />
-                        <p className="font-medium">Nachricht gesendet!</p>
-                        <button onClick={() => setStatus('idle')} className="mt-4 text-sm text-gray-500 underline">Neue Nachricht</button>
+                        <CheckCircle size={40} className="mb-2" />
+                        <p className="font-light tracking-wide">Nachricht gesendet</p>
+                        <button onClick={() => setStatus('idle')} className="mt-4 text-xs text-gray-500 uppercase tracking-widest hover:text-dark transition-colors">Neues Formular</button>
                     </motion.div>
                 ) : (
                     <motion.form
@@ -47,43 +46,45 @@ const ContactForm: React.FC = () => {
                         method="post"
                         data-netlify="true"
                         onSubmit={handleSubmit}
-                        className="space-y-3"
+                        className="space-y-6"
                     >
                         <input type="hidden" name="form-name" value="contact" />
 
-                        <div>
+                        <div className="group">
                             <input type="text" id="name" name="name" required
-                                className="w-full px-4 py-2 rounded-lg bg-white/40 border border-white/40 focus:bg-white/60 focus:ring-2 focus:ring-primary/50 focus:outline-none transition-all placeholder:text-gray-500 text-sm"
+                                className="w-full py-2 bg-transparent border-b border-gray-300 focus:border-primary focus:outline-none transition-colors placeholder:text-gray-400 text-dark font-light"
                                 placeholder="Name"
                             />
                         </div>
 
-                        <div>
+                        <div className="group">
                             <input type="email" id="email" name="email" required
-                                className="w-full px-4 py-2 rounded-lg bg-white/40 border border-white/40 focus:bg-white/60 focus:ring-2 focus:ring-primary/50 focus:outline-none transition-all placeholder:text-gray-500 text-sm"
+                                className="w-full py-2 bg-transparent border-b border-gray-300 focus:border-primary focus:outline-none transition-colors placeholder:text-gray-400 text-dark font-light"
                                 placeholder="Email"
                             />
                         </div>
 
-                        <div>
+                        <div className="group">
                             <textarea id="message" name="message" required rows={3}
-                                className="w-full px-4 py-2 rounded-lg bg-white/40 border border-white/40 focus:bg-white/60 focus:ring-2 focus:ring-primary/50 focus:outline-none transition-all resize-none placeholder:text-gray-500 text-sm"
-                                placeholder="Nachricht..."
+                                className="w-full py-2 bg-transparent border-b border-gray-300 focus:border-primary focus:outline-none transition-colors resize-none placeholder:text-gray-400 text-dark font-light"
+                                placeholder="Nachricht"
                             ></textarea>
                         </div>
 
-                        <button
-                            type="submit"
-                            disabled={status === 'submitting'}
-                            className="w-full py-2.5 bg-dark text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:bg-black transition-all flex items-center justify-center gap-2 group disabled:opacity-70 uppercase tracking-widest text-xs"
-                        >
-                            {status === 'submitting' ? 'Senden...' : (
-                                <>
-                                    Senden <Send size={14} className="group-hover:translate-x-1 transition-transform" />
-                                </>
-                            )}
-                        </button>
-                        {status === 'error' && <p className="text-red-500 text-xs text-center">Fehler beim Senden.</p>}
+                        <div className="pt-4">
+                            <button
+                                type="submit"
+                                disabled={status === 'submitting'}
+                                className="w-full py-3 border border-dark/20 hover:border-dark text-dark rounded-none uppercase tracking-[0.2em] text-xs font-medium hover:bg-dark hover:text-white transition-all duration-300 flex items-center justify-center gap-3 group disabled:opacity-50"
+                            >
+                                {status === 'submitting' ? 'Senden...' : (
+                                    <>
+                                        Senden <Send size={12} className="group-hover:translate-x-1 transition-transform" />
+                                    </>
+                                )}
+                            </button>
+                        </div>
+                        {status === 'error' && <p className="text-red-500 text-xs text-center mt-2">Fehler beim Senden.</p>}
                     </motion.form>
                 )}
             </AnimatePresence>

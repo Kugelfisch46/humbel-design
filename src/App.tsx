@@ -16,23 +16,21 @@ function App() {
           className="w-full max-w-4xl glass-panel rounded-2xl overflow-hidden flex flex-col md:flex-row shadow-2xl max-h-[85vh] md:max-h-[800px]"
         >
           {/* Left Content Section */}
-          <div className="p-6 md:p-8 flex-1 flex flex-col justify-center relative overflow-y-auto md:overflow-hidden">
+          <div className="p-6 md:p-10 flex-1 flex flex-col justify-center relative overflow-y-auto md:overflow-hidden">
             <div className="relative z-10">
               <Hero />
-              <div className="mt-6 hidden md:block">
-                <ContactInfo />
-              </div>
+              {/* ContactInfo moved to right side */}
             </div>
             {/* Subtle decorative circle behind text */}
             <div className="absolute -top-20 -left-20 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
           </div>
 
           {/* Right/Bottom Action Section */}
-          <div className="bg-white/50 backdrop-blur-xl border-t md:border-t-0 md:border-l border-white/50 p-6 md:p-8 flex flex-col justify-center items-center md:items-stretch min-w-[320px]">
-            <div className="md:hidden mb-6 w-full">
+          <div className="bg-white/60 backdrop-blur-xl border-t md:border-t-0 md:border-l border-white/40 p-6 md:p-10 flex flex-col justify-center min-w-[340px]">
+            <div className="w-full">
               <ContactInfo />
+              <ContactForm />
             </div>
-            <ContactForm />
           </div>
         </motion.div>
 
