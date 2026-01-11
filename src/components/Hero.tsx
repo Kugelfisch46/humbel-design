@@ -25,6 +25,11 @@ const Hero: React.FC = () => {
                         bis bald und herzlich<br />
                         stephan humbel
                     </p>
+
+                    <div className="flex gap-4 mt-8">
+                        <img src="/images/e1.jpg" alt="Showcase 1" className="w-1/2 rounded-lg shadow-sm object-cover h-48 hover:scale-105 transition-transform duration-500" />
+                        <img src="/images/e2-scaled.jpg" alt="Showcase 2" className="w-1/2 rounded-lg shadow-sm object-cover h-48 hover:scale-105 transition-transform duration-500" />
+                    </div>
                 </div>
             </motion.div>
         </div>
