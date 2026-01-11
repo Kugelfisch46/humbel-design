@@ -14,12 +14,16 @@ const Hero: React.FC = () => {
                 </h1>
                 <div className="h-1 w-24 bg-primary mb-8 rounded-full"></div>
 
-                <div className="glass-card p-8 rounded-2xl max-w-lg mb-8 bg-white/40 border-white/30">
-                    <p className="text-xl md:text-2xl font-light leading-relaxed text-gray-800">
-                        Diese Seite wird momentan überarbeitet.
+                <div className="glass-card p-8 rounded-2xl max-w-2xl mb-8 bg-white/40 border-white/30">
+                    <p className="text-lg md:text-xl font-light leading-relaxed text-gray-800 mb-4">
+                        humbel.info wird überarbeitet - ich freue mich über Ihr Interesse an Untersetzern aus Aluminium oder Edelstahl sowie an Karten mit Wort- und Zahlenkunst - Karten zum Jahreswechsel, Trauerkarten, Gratulationskarten zu runden und halbrunden Geburtstagen, Karten für besondere Gelegenheiten.
                     </p>
-                    <p className="mt-4 text-gray-600">
-                        Wir sind bald zurück mit neuen Untersetzern und Karten.
+                    <p className="text-lg md:text-xl font-light leading-relaxed text-gray-800 mb-4">
+                        Teilen Sie mir mittels Kontaktformular Ihre Wünsche mit.
+                    </p>
+                    <p className="text-lg md:text-xl font-medium leading-relaxed text-gray-800">
+                        bis bald und herzlich<br />
+                        stephan humbel
                     </p>
                 </div>
             </motion.div>
