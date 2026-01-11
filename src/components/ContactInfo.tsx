@@ -1,0 +1,45 @@
+import React from 'react';
+import { Phone, Mail, MapPin } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const ContactInfo: React.FC = () => {
+    return (
+        <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="glass-card p-6 rounded-2xl max-w-sm backdrop-blur-xl bg-white/60 border-white/40"
+        >
+            <h2 className="text-2xl font-bold mb-6 text-dark">Kontakt</h2>
+            <div className="space-y-4">
+                <a href="tel:+41562494465" className="flex items-center gap-3 text-gray-700 hover:text-primary transition-colors group">
+                    <div className="p-2 bg-white/50 rounded-full group-hover:bg-primary/10 transition-colors">
+                        <Phone size={20} className="text-primary" />
+                    </div>
+                    <span>+41 56 249 44 65</span>
+                </a>
+
+                <a href="mailto:info@humbel.design" className="flex items-center gap-3 text-gray-700 hover:text-primary transition-colors group">
+                    <div className="p-2 bg-white/50 rounded-full group-hover:bg-primary/10 transition-colors">
+                        <Mail size={20} className="text-primary" />
+                    </div>
+                    <span>info@humbel.design</span>
+                </a>
+
+                <div className="flex items-start gap-3 text-gray-700 group">
+                    <div className="p-2 bg-white/50 rounded-full mt-1">
+                        <MapPin size={20} className="text-primary" />
+                    </div>
+                    <address className="not-italic">
+                        Humbel Design<br />
+                        Stephan Humbel<br />
+                        Dorfstrasse 38<br />
+                        5444 Rümikon
+                    </address>
+                </div>
+            </div>
+        </motion.div>
+    );
+};
+
+export default ContactInfo;
