@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 
 const products = [
     // Using placeholder names for now - user will need to re-upload images
-    { id: 1, src: '/images/coaster-1.jpg', alt: 'Coaster Design 1', span: 'col-span-1 row-span-1' },
-    { id: 2, src: '/images/card-1.jpg', alt: 'Art Card 1', span: 'col-span-1 row-span-2' },
-    { id: 3, src: '/images/coaster-2.jpg', alt: 'Coaster Design 2', span: 'col-span-1 row-span-1' },
-    { id: 4, src: '/images/card-2.jpg', alt: 'Art Card 2', span: 'col-span-2 row-span-1' },
-    { id: 5, src: '/images/coaster-3.jpg', alt: 'Coaster Design 3', span: 'col-span-1 row-span-1' },
+    { id: 1, src: '/images/1-scaled.jpg', alt: 'Coaster Design 1', span: 'col-span-1 row-span-1' },
+    { id: 2, src: '/images/221.jpg', alt: 'Art Card 1', span: 'col-span-1 row-span-2' },
+    { id: 3, src: '/images/2-scaled.jpg', alt: 'Coaster Design 2', span: 'col-span-1 row-span-1' },
+    { id: 4, src: '/images/222.jpg', alt: 'Art Card 2', span: 'col-span-2 row-span-1' },
+    { id: 5, src: '/images/e1.jpg', alt: 'Coaster Design 3', span: 'col-span-1 row-span-1' },
 ];
 
 const ProductShowcase: React.FC = () => {
