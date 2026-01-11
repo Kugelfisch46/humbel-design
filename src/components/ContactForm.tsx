@@ -5,19 +5,25 @@ import { motion, AnimatePresence } from 'framer-motion';
 const ContactForm: React.FC = () => {
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
+    // Helper to encode data for Netlify
+    const encode = (data: Record<string, string>) => {
+        return Object.keys(data)
+            .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+            .join('&');
+    };
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setStatus('submitting');
 
-        // Check if we are running the form logic (Netlify handles the post automatically if configured, 
-        // but in SPA we often do a fetch)
-        const form = e.currentTarget;
-        const formData = new FormData(form);
+        const formData = new FormData(e.currentTarget);
+        // data-netlify="true" in the tag needs this explicit encoding in React
+        const data = Object.fromEntries(formData.entries()) as Record<string, string>;
 
         fetch('/', {
             method: 'POST',
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData as any).toString()
+            body: encode({ "form-name": "contact", ...data })
         })
             .then(() => setStatus('success'))
             .catch((error) => {
