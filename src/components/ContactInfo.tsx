@@ -1,6 +1,5 @@
 import React from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 const ContactInfo: React.FC = () => {
     return (
