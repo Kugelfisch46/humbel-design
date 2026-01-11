@@ -27,8 +27,8 @@ const ContactForm: React.FC = () => {
     };
 
     return (
-        <div className="w-full max-w-sm relative">
-            <h3 className="text-xl font-bold mb-6 text-dark uppercase tracking-widest text-sm">Kontaktformular</h3>
+        <div className="w-full max-w-sm relative mt-4 md:mt-0">
+            <h3 className="text-lg font-bold mb-4 text-dark uppercase tracking-widest text-xs">Kontaktformular</h3>
 
             <AnimatePresence mode='wait'>
                 {status === 'success' ? (
@@ -47,27 +47,27 @@ const ContactForm: React.FC = () => {
                         method="post"
                         data-netlify="true"
                         onSubmit={handleSubmit}
-                        className="space-y-4"
+                        className="space-y-3"
                     >
                         <input type="hidden" name="form-name" value="contact" />
 
                         <div>
                             <input type="text" id="name" name="name" required
-                                className="w-full px-4 py-3 rounded-lg bg-white/40 border border-white/40 focus:bg-white/60 focus:ring-2 focus:ring-primary/50 focus:outline-none transition-all placeholder:text-gray-500"
+                                className="w-full px-4 py-2 rounded-lg bg-white/40 border border-white/40 focus:bg-white/60 focus:ring-2 focus:ring-primary/50 focus:outline-none transition-all placeholder:text-gray-500 text-sm"
                                 placeholder="Name"
                             />
                         </div>
 
                         <div>
                             <input type="email" id="email" name="email" required
-                                className="w-full px-4 py-3 rounded-lg bg-white/40 border border-white/40 focus:bg-white/60 focus:ring-2 focus:ring-primary/50 focus:outline-none transition-all placeholder:text-gray-500"
+                                className="w-full px-4 py-2 rounded-lg bg-white/40 border border-white/40 focus:bg-white/60 focus:ring-2 focus:ring-primary/50 focus:outline-none transition-all placeholder:text-gray-500 text-sm"
                                 placeholder="Email"
                             />
                         </div>
 
                         <div>
-                            <textarea id="message" name="message" required rows={4}
-                                className="w-full px-4 py-3 rounded-lg bg-white/40 border border-white/40 focus:bg-white/60 focus:ring-2 focus:ring-primary/50 focus:outline-none transition-all resize-none placeholder:text-gray-500"
+                            <textarea id="message" name="message" required rows={3}
+                                className="w-full px-4 py-2 rounded-lg bg-white/40 border border-white/40 focus:bg-white/60 focus:ring-2 focus:ring-primary/50 focus:outline-none transition-all resize-none placeholder:text-gray-500 text-sm"
                                 placeholder="Nachricht..."
                             ></textarea>
                         </div>
@@ -75,15 +75,15 @@ const ContactForm: React.FC = () => {
                         <button
                             type="submit"
                             disabled={status === 'submitting'}
-                            className="w-full py-3 bg-dark text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:bg-black transition-all flex items-center justify-center gap-2 group disabled:opacity-70 uppercase tracking-widest text-xs"
+                            className="w-full py-2.5 bg-dark text-white rounded-lg font-bold shadow-lg hover:shadow-xl hover:bg-black transition-all flex items-center justify-center gap-2 group disabled:opacity-70 uppercase tracking-widest text-xs"
                         >
                             {status === 'submitting' ? 'Senden...' : (
                                 <>
-                                    Senden <Send size={16} className="group-hover:translate-x-1 transition-transform" />
+                                    Senden <Send size={14} className="group-hover:translate-x-1 transition-transform" />
                                 </>
                             )}
                         </button>
-                        {status === 'error' && <p className="text-red-500 text-sm text-center">Fehler beim Senden. Bitte versuchen Sie es erneut.</p>}
+                        {status === 'error' && <p className="text-red-500 text-xs text-center">Fehler beim Senden.</p>}
                     </motion.form>
                 )}
             </AnimatePresence>
