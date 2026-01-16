@@ -49,6 +49,8 @@ const ContactForm: React.FC = () => {
 
     return (
         <div className="w-full relative mt-8 md:mt-0">
+            <h2 className="text-lg font-bold mb-6 text-dark uppercase tracking-widest text-xs md:hidden">Kontaktformular</h2>
+
 
             <AnimatePresence mode='wait'>
                 {status === 'success' ? (
