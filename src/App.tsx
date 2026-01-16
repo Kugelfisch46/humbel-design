@@ -8,12 +8,12 @@ import { motion } from 'framer-motion';
 function App() {
   return (
     <Layout>
-      <div className="h-screen w-full flex flex-col items-center justify-center p-4 overflow-hidden">
+      <div className="min-h-screen md:h-screen w-full flex flex-col items-center justify-center p-4 overflow-y-auto md:overflow-hidden">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="w-full max-w-4xl glass-panel rounded-2xl overflow-hidden flex flex-col md:flex-row shadow-2xl max-h-[85vh] md:max-h-[800px]"
+          className="w-full max-w-4xl glass-panel rounded-2xl overflow-hidden flex flex-col md:flex-row shadow-2xl h-auto md:max-h-[800px]"
         >
           {/* Left Content Section */}
           <div className="p-6 md:p-10 flex-1 flex flex-col justify-center relative overflow-y-auto md:overflow-hidden">
@@ -34,7 +34,7 @@ function App() {
           </div>
         </motion.div>
 
-        <footer className="mt-4 text-white/80 text-xs font-medium text-shadow-sm absolute bottom-2">
+        <footer className="mt-8 md:mt-4 text-white/80 text-xs font-medium text-shadow-sm static md:absolute bottom-2">
           &copy; {new Date().getFullYear()} humbel.design. All rights reserved.
         </footer>
       </div>

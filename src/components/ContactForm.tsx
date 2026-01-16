@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Send, CheckCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ReCAPTCHA from "react-google-recaptcha";
 
 const ContactForm: React.FC = () => {
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+    const recaptchaRef = useRef<ReCAPTCHA>(null);
 
     // Helper to encode data for Netlify
     const encode = (data: Record<string, string>) => {
@@ -12,24 +14,37 @@ const ContactForm: React.FC = () => {
             .join('&');
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        const recaptchaValue = recaptchaRef.current?.getValue();
+        if (!recaptchaValue) {
+            alert("Bitte bestätigen Sie, dass Sie kein Roboter sind.");
+            return;
+        }
+
         setStatus('submitting');
 
         const formData = new FormData(e.currentTarget);
         // data-netlify="true" in the tag needs this explicit encoding in React
         const data = Object.fromEntries(formData.entries()) as Record<string, string>;
 
-        fetch('/', {
-            method: 'POST',
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ "form-name": "contact", ...data })
-        })
-            .then(() => setStatus('success'))
-            .catch((error) => {
-                console.error(error);
-                setStatus('error');
+        try {
+            await fetch('/', {
+                method: 'POST',
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: encode({
+                    "form-name": "contact",
+                    "g-recaptcha-response": recaptchaValue,
+                    ...data
+                })
             });
+            setStatus('success');
+            recaptchaRef.current?.reset();
+        } catch (error) {
+            console.error(error);
+            setStatus('error');
+        }
     };
 
     return (
@@ -51,6 +66,7 @@ const ContactForm: React.FC = () => {
                         name="contact"
                         method="post"
                         data-netlify="true"
+                        data-netlify-recaptcha="true"
                         onSubmit={handleSubmit}
                         className="space-y-6"
                     >
@@ -77,7 +93,13 @@ const ContactForm: React.FC = () => {
                             ></textarea>
                         </div>
 
-                        <div className="pt-4">
+                        <div className="pt-2">
+                            <ReCAPTCHA
+                                ref={recaptchaRef}
+                                sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY || "6LdAvUIUAAAAAHjrjmjtNTkWyTgv3HKChCKGJGmC"}
+                                className="mb-4"
+                            />
+
                             <button
                                 type="submit"
                                 disabled={status === 'submitting'}
